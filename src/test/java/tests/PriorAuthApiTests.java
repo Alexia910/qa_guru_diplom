@@ -3,6 +3,7 @@ package tests;
 import models.MainFormRequest;
 import models.Root;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
 import static io.restassured.RestAssured.given;
@@ -14,6 +15,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 public class PriorAuthApiTests {
 
 //С lombok
+    @Tag("api")
     @Test
     @DisplayName("Отображение главной страницы оценки сайта")
     void feedbackPage() {
@@ -45,6 +47,7 @@ public class PriorAuthApiTests {
                 root.getPayload().getItem().getDescription().getRu());
     }
 
+    @Tag("api")
     @Test
     @DisplayName("Отображение первой формы оценки")
     void firstAnswerPage() {
@@ -66,6 +69,7 @@ public class PriorAuthApiTests {
                         + " порекомендую</p><p></p>"));
     }
 
+    @Tag("api")
     @Test
     @DisplayName("Отображение второй формы оценки")
     void secondAnswerPage() {
@@ -82,6 +86,7 @@ public class PriorAuthApiTests {
                         + " более высокую оценку?</p>"));
     }
 
+    @Tag("api")
     @Test
     @DisplayName("Отображение третьей формы оценки")
     void thirdAnswerPage() {

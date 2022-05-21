@@ -12,6 +12,7 @@ public class PriorAuthUiTests extends TestBase{
     AuthorizationPage authorizationPage = new AuthorizationPage();
     UserPage userPage = new UserPage();
 
+    @Tag("ui")
     @Test
     @DisplayName("Проверка отображения формы входа")
     void displayingLoginForm() {
@@ -25,6 +26,7 @@ public class PriorAuthUiTests extends TestBase{
         });
     }
 
+    @Tag("ui")
     @Test
     @DisplayName("Проверка перехода в демо-версию АЧ")
     void switchToDemo() {
@@ -40,6 +42,7 @@ public class PriorAuthUiTests extends TestBase{
         });
     };
 
+    @Tag("ui")
     @Test
     @DisplayName("Отображение элементов на вкладке Вопросы и ответы")
     void switchToQuestions() {
@@ -58,6 +61,7 @@ public class PriorAuthUiTests extends TestBase{
 
     };
 
+    @Tag("ui")
     @Test
     @DisplayName("Отображение иконок соцсетей")
     void socialIcons() {
@@ -79,6 +83,7 @@ public class PriorAuthUiTests extends TestBase{
         });
     };
 
+    @Tag("ui")
     @Test
     @DisplayName("Отображение курсов валют за наличные")
     void currencyRateForCards() {
@@ -90,6 +95,7 @@ public class PriorAuthUiTests extends TestBase{
         });
     };
 
+    @Tag("ui")
     @Test
     @DisplayName("Создание депозита")
     void depositFile() throws Exception {

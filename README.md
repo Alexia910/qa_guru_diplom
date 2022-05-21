@@ -1,7 +1,7 @@
 # Проект по автоматизации тестирования сайта ПРИОРБАНК
 <a target="_blank" href="https://www.priorbank.by/">Сайт Приорбанк</a> и <a target="_blank" href="https://www.prior.by/web/">интернет-банкинг Приорбанк</a>
 
-<a href="https://www.jetbrains.com/idea/"><img src="images\priorbank.jpg" height="80" alt="Priorbank"/></a>
+<a href="https://www.jetbrains.com/idea/"><img src="images\priorbank.jpg" height="60" alt="Priorbank"/></a>
 
 ## Содержание:
 - [Технологии и инструменты](#alien-технологии-и-инструменты)
@@ -73,7 +73,7 @@ test
 
 ## :fairy: Запуск тестов в Jenkins
 Шаги:
-1. Зарегистрированным пользователем перейти на страницу сборки проекта по ссылке: <a target="_blank" href="https://jenkins.autotests.cloud/job/011-alexiaair-hw15-rb/">Jenkins Alexiaair</a>
+1. Зарегистрированным пользователем перейти на страницу сборки проекта по ссылке: <a target="_blank" href="https://jenkins.autotests.cloud/job/011-alexiaair-diplom/">Jenkins Alexiaair</a>
 2. Перечисленные ниже параметры можно менять в графическом интерфейсе.
 3. Запустить выполнение тестов кнопкой "Собрать" (внизу страницы)
 

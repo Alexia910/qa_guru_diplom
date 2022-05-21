@@ -34,7 +34,7 @@ public class PriorAuthUiTests extends TestBase{
             authorizationPage.switchNewClientTab();
         });
         step("Наличие кнопки перехода в демо-версию", () -> {
-            authorizationPage.checkDemoButton("Демо-версия");
+            authorizationPage.checkDemoButton("Дмо-версия");
         });
         step("Переход в демо-версию", () -> {
             authorizationPage.goToDemoVersion();
@@ -50,7 +50,7 @@ public class PriorAuthUiTests extends TestBase{
             authorizationPage.goToQuestionTab();
         });
         step("Отображение списка вопросов", () -> {
-            authorizationPage.checkFirstQuestion("Как подключиться к Интернет-банку самостоятельно?");
+            authorizationPage.checkFirstQuestion("Как поключиться к Интернет-банку самостоятельно?");
             authorizationPage.checkFourthQuestion("Можно ли получать М-код, находясь за границей?");
         });
         step("Отображение ответа", () -> {

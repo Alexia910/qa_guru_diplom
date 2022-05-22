@@ -11,8 +11,8 @@ import static com.codeborne.selenide.Selenide.$$;
 public class UserPage {
 
     //locators
-    private SelenideElement mainHeader = $(".page-title");
-    private SelenideElement deposits = $(byText("Электронные депозиты"));
+    private SelenideElement mainHeader = $(".content-header-title");
+    private SelenideElement deposits = $(".iconprior icon-deposit");
     private SelenideElement newDepositButton = $(byText("Открыть депозит"));
     private SelenideElement firstField = $(".form-control");
     private SelenideElement secondField = $(".form-controls .form-control");

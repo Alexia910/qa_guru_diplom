@@ -11,9 +11,9 @@ import static com.codeborne.selenide.Selenide.$$;
 public class UserPage {
 
     //locators
-    private SelenideElement mainHeader = $(".content-header-title");
+    private SelenideElement mainHeader = $("#content-header-title");
     private SelenideElement deposits = $(".iconprior icon-deposit");
-    private SelenideElement newDepositButton = $(byText("Открыть депозит"));
+    private SelenideElement newDepositButton = $("#left-panel .submenu level0:nth-child(6)");
     private SelenideElement firstField = $(".form-control");
     private SelenideElement secondField = $(".form-controls .form-control");
     private SelenideElement stepTitle = $(".step-title");

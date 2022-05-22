@@ -1,7 +1,6 @@
 package tests;
 
 import com.codeborne.selenide.Configuration;
-//import helpers.Attach;
 import helpers.Attach;
 import io.qameta.allure.junit5.AllureJunit5;
 import org.junit.jupiter.api.AfterEach;

@@ -11,8 +11,8 @@ import static com.codeborne.selenide.Selenide.$$;
 public class UserPage {
 
     //locators
-    private SelenideElement mainHeader = $("#header");
-    private SelenideElement deposits = $("#left-panel .submenu:nth-child(6)");
+    private SelenideElement mainHeader = $(".page-title");
+    private SelenideElement deposits = $(byText("Электронные депозиты"));
     private SelenideElement newDepositButton = $(byText("Открыть депозит"));
     private SelenideElement firstField = $(".form-control");
     private SelenideElement secondField = $(".form-controls .form-control");
@@ -24,7 +24,7 @@ public class UserPage {
 
     //actions
     public void checkMainHeader(String header) {
-        mainHeader.shouldBe(visible);
+        mainHeader.shouldHave(text(header));
     }
 
     public void goToNewDeposit() {

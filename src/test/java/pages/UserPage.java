@@ -12,8 +12,8 @@ public class UserPage {
 
     //locators
     private SelenideElement mainHeader = $("#content-header-title");
-    private SelenideElement deposits = $(".iconprior icon-deposit");
-    private SelenideElement newDepositButton = $("#left-panel .submenu level0:nth-child(6)");
+    private SelenideElement deposits = $("#left-panel .submenu:nth-child(6)");
+    private SelenideElement newDepositButton = $(byText("Открыть депозит"));
     private SelenideElement firstField = $(".form-control");
     private SelenideElement secondField = $(".form-controls .form-control");
     private SelenideElement stepTitle = $(".step-title");

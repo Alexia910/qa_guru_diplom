@@ -1,6 +1,5 @@
 package tests;
 
-import models.GenerateToken;
 import models.MainFormRequest;
 import models.Root;
 import org.junit.jupiter.api.DisplayName;
@@ -14,6 +13,9 @@ import static spec.Specs.response;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class PriorAuthApiTests {
+
+    GenerateToken generateToken = new GenerateToken();
+    String token = generateToken.haveToken();
 
 //С lombok
     @Tag("api")
@@ -52,9 +54,6 @@ public class PriorAuthApiTests {
     @Test
     @DisplayName("Запрос вопроса из неначатого опроса")
     void firstAnswerPage() {
-        GenerateToken generateToken = new GenerateToken();
-        String token = generateToken.haveToken();
-
         given()
                 .spec(request)
                 .body("[{\"comment\":null,\"options\":[],\"questionId\":40391,\"startedAt\":\"2022-05-17T18:10:37.179Z"

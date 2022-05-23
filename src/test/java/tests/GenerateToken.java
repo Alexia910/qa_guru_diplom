@@ -1,4 +1,4 @@
-package models;
+package tests;
 
 import static io.restassured.RestAssured.given;
 import static spec.Specs.request;

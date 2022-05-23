@@ -1,9 +1,14 @@
 package tests;
 
+import com.codeborne.selenide.Condition;
+import com.codeborne.selenide.Configuration;
 import org.junit.jupiter.api.*;
 import pages.AuthorizationPage;
 import pages.UserPage;
 
+import java.time.Duration;
+
+import static com.codeborne.selenide.Selenide.$;
 import static io.qameta.allure.Allure.step;
 
 
@@ -34,6 +39,7 @@ public class PriorAuthUiTests extends TestBase{
             authorizationPage.switchNewClientTab();
         });
         step("Наличие кнопки перехода в демо-версию", () -> {
+            $(".link_demo span").should(Condition.visible, Duration.ofSeconds(30));
             authorizationPage.checkDemoButton("Демо-версия");
         });
         step("Переход в демо-версию", () -> {

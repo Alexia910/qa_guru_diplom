@@ -42,7 +42,6 @@ public class PriorAuthUiTests extends TestBase{
         });
         step("Переход в демо-версию", () -> {
             authorizationPage.goToDemoVersion();
-            $(".page-title").shouldBe(visible, Duration.ofSeconds(30));
             userPage.checkMainHeader("Рабочий стол");
         });
     };

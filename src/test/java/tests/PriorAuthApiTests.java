@@ -1,5 +1,6 @@
 package tests;
 
+import models.GenerateToken;
 import models.MainFormRequest;
 import models.Root;
 import org.junit.jupiter.api.DisplayName;
@@ -49,8 +50,11 @@ public class PriorAuthApiTests {
 
     @Tag("api")
     @Test
-    @DisplayName("Отображение первой формы оценки")
+    @DisplayName("Запрос вопроса из неначатого опроса")
     void firstAnswerPage() {
+        GenerateToken generateToken = new GenerateToken();
+        String token = generateToken.haveToken();
+
         given()
                 .spec(request)
                 .body("[{\"comment\":null,\"options\":[],\"questionId\":40391,\"startedAt\":\"2022-05-17T18:10:37.179Z"
@@ -58,20 +62,15 @@ public class PriorAuthApiTests {
                         + "-05-17T18:10:37.179Z\",\"value\":6},{\"comment\":null,\"options\":[],\"questionId\":40393,"
                         + "\"startedAt\":\"2022-05-17T18:10:37.179Z\",\"value\":5}]")
                 .when()
-                .post("/MGfE8NBevifZsH6Ji/6fa9cbca-4328-4fef-809f-a31e4000d498/answer")
+                .post("/MGfE8NBevifZsH6Ji/" + token + "/answer")
                 .then()
-                .spec(response)
                 .log().body()
-                .body("payload.item.name.ru", is("<p>Исходя из вашего опыта использования сайта, насколько"
-                        + " вероятно, что Вы порекомендуете его своим друзьям и знакомым по шкале от 0"
-                        + " до 10?</p><p></p>"))
-                .body("payload.item.description.ru", is("<p>где 0 – точно не порекомендую, 10 – точно"
-                        + " порекомендую</p><p></p>"));
+                .body("errors.code[0]", is("ANSWER_POLL_NOT_STARTED"));
     }
 
     @Tag("api")
     @Test
-    @DisplayName("Отображение второй формы оценки")
+    @DisplayName("Запрос вопроса из пройденного опроса")
     void secondAnswerPage() {
         given()
                 .spec(request)
@@ -82,25 +81,9 @@ public class PriorAuthApiTests {
                 .then()
                 .spec(response)
                 .log().body()
-                .body("payload.item.name.ru", is("<p>Что нужно улучшить в работе сайта, чтобы Вы поставили"
-                        + " более высокую оценку?</p>"));
-    }
-
-    @Tag("api")
-    @Test
-    @DisplayName("Отображение третьей формы оценки")
-    void thirdAnswerPage() {
-        given()
-                .spec(request)
-                .body("[{\"comment\":null,\"options\":[],\"questionId\":40390,\"startedAt\":\"2022-05-17T17:53:58.158Z"
-                        + "\",\"value\":null,\"skipped\":true}]")
-                .when()
-                .post("/MGfE8NBevifZsH6Ji/6fa9cbca-4328-4fef-809f-a31e4000d498/answer")
-                .then()
-                .spec(response)
-                .log().body()
-                .body("payload.item.name.ru", is("<p>Благодарим за высокую оценку. Что Вы хотели бы улучшить"
-                        + " в работе сайта?</p>"));
+                .body("errors.name[0]", is("Опрос недоступен"))
+                .body("errors.text[0]", is("Вы уже проходили этот опрос. Повторное прохождение недоступно"))
+                .body("errors.code[0]", is("SURVEY_ALREADY_TAKEN"));
     }
 
 }

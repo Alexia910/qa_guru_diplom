@@ -2,11 +2,7 @@ package tests;
 
 import org.junit.jupiter.api.*;
 import pages.AuthorizationPage;
-import pages.UserPage;
 
-import java.time.Duration;
-
-import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selenide.$;
 import static io.qameta.allure.Allure.step;
 
@@ -14,7 +10,6 @@ import static io.qameta.allure.Allure.step;
 public class PriorAuthUiTests extends TestBase{
 
     AuthorizationPage authorizationPage = new AuthorizationPage();
-    UserPage userPage = new UserPage();
 
     @Tag("ui")
     @Test
@@ -29,22 +24,6 @@ public class PriorAuthUiTests extends TestBase{
             authorizationPage.checkRecoveryButton("Восстановление доступа");
         });
     }
-
-    @Tag("ui")
-    @Test
-    @DisplayName("Проверка перехода в демо-версию АЧ")
-    void switchToDemo() {
-        step("Переход на вкладку Стать клиентом", () -> {
-            authorizationPage.switchNewClientTab();
-        });
-        step("Наличие кнопки перехода в демо-версию", () -> {
-            authorizationPage.checkDemoButton("Демо-версия");
-        });
-        step("Переход в демо-версию", () -> {
-            authorizationPage.goToDemoVersion();
-            userPage.checkMainHeader("Рабочий стол");
-        });
-    };
 
     @Tag("ui")
     @Test
@@ -99,25 +78,22 @@ public class PriorAuthUiTests extends TestBase{
         });
     };
 
+
     @Tag("ui")
     @Test
-    @DisplayName("Создание депозита")
-    void depositFile() throws Exception {
-        step("Переход к странице создания депозита", () -> {
-            authorizationPage.switchNewClientTab();
-            authorizationPage.goToDemoVersion();
-            userPage.goToNewDeposit();
+    @DisplayName("Отображение кнопок в header")
+    void buttonsHeader() {
+        String atm = "Банкоматы и отделения";
+        String help = "Онлайн-помощник";
+        String cources = "Курсы";
+        step("Отображение кнопки " + atm, () -> {
+            authorizationPage.atmButton(atm);
         });
-        step("Заполнение форм при создании депозита", () -> {
-            userPage.enterDataInForm("655", "6");
+        step("Отображение кнопки " + help, () -> {
+            authorizationPage.helpButton(help);
         });
-        step("Отображение страницы договора оферты", () -> {
-            userPage.checkStepTitle("Договор оферты");
-        });
-        step("Отображение страницы завершения операции", () -> {
-            userPage.goToFinishStep();
-            userPage.checkStepTitle("Открытие электронного депозита");
-            userPage.checkFinish("Заявление на открытие онлайн-депозита находится в обработке.");
+        step("Отображение кнопки " + cources, () -> {
+            authorizationPage.courcesButton(cources);
         });
     };
 

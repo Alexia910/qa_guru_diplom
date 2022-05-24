@@ -35,7 +35,9 @@ public class AuthorizationPage {
     private SelenideElement usdTab = $(".currTabs .cel:nth-child(1)");
     private SelenideElement rubTab = $$(".currTabs .cel:nth-child(3)").find(text("RUB"));
     private SelenideElement rateKind = $(".currTabs .tab-pane:nth-child(3) .rate tr:nth-child(3)");
-
+    private SelenideElement atm = $(".contact_map .dotted");
+    private SelenideElement help = $(".pers-a .dotted");
+    private SelenideElement cources = $(".cources .dotted");
 
 
     //actions
@@ -116,6 +118,18 @@ public class AuthorizationPage {
         usdTab.shouldHave(text(currency));
         rubTab.click();
         rateKind.shouldHave(text(title));
+    }
+
+    public void atmButton(String title) {
+        atm.shouldHave(text(title));
+    }
+
+    public void helpButton(String title) {
+        help.shouldHave(text(title));
+    }
+
+    public void courcesButton(String title) {
+        cources.shouldHave(text(title));
     }
 
 }

@@ -4,10 +4,6 @@ import org.junit.jupiter.api.*;
 import pages.AuthorizationPage;
 import pages.UserPage;
 
-import java.time.Duration;
-
-import static com.codeborne.selenide.Condition.visible;
-import static com.codeborne.selenide.Selenide.$;
 import static io.qameta.allure.Allure.step;
 
 
@@ -118,6 +114,24 @@ public class PriorAuthUiTests extends TestBase{
             userPage.goToFinishStep();
             userPage.checkStepTitle("Открытие электронного депозита");
             userPage.checkFinish("Заявление на открытие онлайн-депозита находится в обработке.");
+        });
+    };
+
+    @Tag("ui")
+    @Test
+    @DisplayName("Отображение кнопок в header")
+    void buttonsHeader() {
+        String atm = "Банкоматы и отделения";
+        String help = "Онлайн-помощник";
+        String cources = "Курсы";
+        step("Отображение кнопки " + atm, () -> {
+            authorizationPage.atmButton(atm);
+        });
+        step("Отображение кнопки " + help, () -> {
+            authorizationPage.helpButton(help);
+        });
+        step("Отображение кнопки " + cources, () -> {
+            authorizationPage.courcesButton(cources);
         });
     };
 

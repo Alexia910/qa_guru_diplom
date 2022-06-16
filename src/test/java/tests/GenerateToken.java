@@ -8,11 +8,12 @@ public class GenerateToken {
     public String haveToken(){
         String token = given()
                 .spec(request)
-                .body("{\"device\":\"DESKTOP\",\"language\":\"en-GB\",\"platform\":\"Win32\",\"screenHeight\":947,"
-                        + "\"screenWidth\":1387,\"userAgent\":\"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit"
-                        + "/537.36 (KHTML, like Gecko) Chrome/101.0.4951.67 Safari/537.36\",\"queryParameters\":{}}")
+                .body("{\"device\":\"DESKTOP\",\"language\":\"en-GB\",\"platform\":\"Win32\",\"screenHeight\":947"
+                        + ",\"screenWidth\":1175,\"surveyResultIdentity\":\"42b40120-e9c4-48f8-b8e2-75ec33f35199\","
+                        + "\"userAgent\":\"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like"
+                        + "Gecko) Chrome/102.0.0.0 Safari/537.36\",\"queryParameters\":{}}")
                 .when()
-                .post("/MGfE8NBevifZsH6Ji/handshake")
+                .post("/MGfE8NBevifZsH6Ji/open")
                 .then()
                 .spec(response)
                 .extract().path("payload.surveyResultIdentity");

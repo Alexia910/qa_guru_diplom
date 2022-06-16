@@ -13,6 +13,7 @@ public class MainFormRequest {
     private Integer screenWidth;
     private String userAgent;
     private ArrayList<String> queryParameters;
+    private String surveyResultIdentity;
 }
 
 

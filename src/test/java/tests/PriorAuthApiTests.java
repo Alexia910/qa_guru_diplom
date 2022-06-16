@@ -28,6 +28,7 @@ public class PriorAuthApiTests {
         mainFormRequest.setPlatform("Win32");
         mainFormRequest.setScreenHeight(947);
         mainFormRequest.setScreenWidth(1387);
+        mainFormRequest.setSurveyResultIdentity("42b40120-e9c4-48f8-b8e2-75ec33f35199");
         mainFormRequest.setUserAgent("Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko)"
                 + "Chrome/101.0.4951.67 Safari/537.36");
         mainFormRequest.setQueryParameters(null);
@@ -36,7 +37,7 @@ public class PriorAuthApiTests {
                 .spec(request)
                 .body(mainFormRequest)
                 .when()
-                .post("/MGfE8NBevifZsH6Ji/handshake")
+                .post("/MGfE8NBevifZsH6Ji/open")
                 .then()
                 .spec(response)
                 .log().body()
